@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GitHub Repos</string>
+    <string name="star_count">Star Count: %d</string>
+    <string name="issue_count">Open Issue Count: %d</string>
+    <string name="no_repo">Can\'t Find Any Repository</string>
+    <string name="get_repos">Get Repos</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="no_repo_found">No Repos Found!</string>
+</resources>

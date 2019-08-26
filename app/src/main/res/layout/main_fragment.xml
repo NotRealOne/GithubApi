@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.kdaydin.inginterview.ui.main.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.MainFragment">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/searchBoxEt"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            android:gravity="center_vertical|start"
+            android:inputType="text"
+            android:layout_marginStart="18dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/enter_username"
+            android:text="@={viewModel.userName}"
+            app:layout_constraintEnd_toStartOf="@+id/searchBoxButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="username" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/searchBoxButton"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="18dp"
+            android:gravity="center"
+            android:textColor="@color/text"
+            android:background="@drawable/button_bg"
+            android:onClick="@{() -> viewModel.searchUserRepos()}"
+            android:text="@string/get_repos"
+            app:layout_constraintBottom_toBottomOf="@id/searchBoxEt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/searchBoxEt" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/emptyRepoTV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/white"
+            android:text="@string/no_repo_found"
+            android:textColor="#60000000"
+            android:fontFamily="monospace"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchBoxEt" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/repoListRv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/white"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchBoxEt" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
